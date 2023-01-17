@@ -294,7 +294,17 @@ Vector<T>::Vector(Vector<T>&& other)
 }
 
 template <typename T>
-const T& Vector<T>::operator[](int index)
+const T& Vector<T>::operator[](int index) const
+{
+	if (index >= v_size && index < 0)
+	{
+		std::out_of_range("Invalid index!!!");
+	}
+	return v_arr[index];
+}
+
+template <typename T>
+T& Vector<T>::operator[](int index)
 {
 	if (index >= v_size && index < 0)
 	{
@@ -439,6 +449,16 @@ bool Vector<T>::operator<=(const Vector<T>& rhs)
 		}
 	}
 	return true;
+}
+
+template <typename T>
+std::ostream& operator<<(std::ostream& os, const Vector<T>& arr)
+{
+	for (int i = 0; i < arr.v_size; ++i)
+	{
+		os << arr[i] << " ";
+	}
+	return os;
 }
 
 template <typename T>
