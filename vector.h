@@ -11,6 +11,22 @@ class Vector
 public:
 	Vector();
 	~Vector();
+	Vector(T*, int);
+	Vector(int, int);
+	Vector(const Vector<T>&);
+	Vector(Vector<T>&&);
+public:	
+	const T& operator[](int) const;
+	T& operator[](int);
+	Vector& operator=(const Vector<T>&);
+	Vector& operator=(Vector<T>&&);
+	bool operator==(Vector<T>&);
+	bool operator!=(Vector<T>&);
+	bool operator>(const Vector<T>&);
+	bool operator<(const Vector<T>&);
+	bool operator>=(const Vector<T>&);
+	bool operator<=(const Vector<T>&);
+	friend std::ostream& operator<<(std::ostream&, const Vector<T>&);
 public:
 	void set_size(int);
 	int get_size() const;
@@ -34,22 +50,6 @@ public:
 	T end() const;
 	int capacity() const; 
 	void print();
-public:	
-	Vector(T*, int);
-	Vector(int, int);
-	Vector(const Vector<T>&);
-	Vector(Vector<T>&&);
-	const T& operator[](int) const;
-	T& operator[](int);
-	Vector& operator=(const Vector<T>&);
-	Vector& operator=(Vector<T>&&);
-	bool operator==(Vector<T>&);
-	bool operator!=(Vector<T>&);
-	bool operator>(const Vector<T>&);
-	bool operator<(const Vector<T>&);
-	bool operator>=(const Vector<T>&);
-	bool operator<=(const Vector<T>&);
-	friend std::ostream& operator<<(std::ostream&, const Vector<T>&)
 private:
 	int v_capacity;
 	int v_size;
