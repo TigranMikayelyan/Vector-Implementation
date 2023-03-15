@@ -65,7 +65,7 @@ const T& Vector<T>::operator[](int index) const
 {
 	if (index >= v_size && index < 0)
 	{
-		std::out_of_range("Invalid index!!!");
+		throw std::out_of_range("Invalid index!!!");
 	}
 	return v_arr[index];
 }
@@ -75,7 +75,7 @@ T& Vector<T>::operator[](int index)
 {
 	if (index >= v_size && index < 0)
 	{
-		std::out_of_range("Invalid index!!!");
+		throw std::out_of_range("Invalid index!!!");
 	}
 	return v_arr[index];
 }
